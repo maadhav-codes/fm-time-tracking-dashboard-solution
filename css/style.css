@@ -216,6 +216,44 @@ main {
   background-image: url("../assets/images/icon-self-care.svg");
 }
 
+.skeleton-card {
+  background-color: var(--navy-900);
+  border-radius: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+  padding: 0 !important;
+}
+
+.skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-line,
+.skeleton-button,
+.skeleton-body {
+  background-color: var(--navy-800);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite ease;
+}
+
+.skeleton-button {
+  width: 2rem;
+  height: 1rem;
+}
+
+.skeleton-line {
+  width: 60%;
+  height: 1.25em;
+}
+
+.skeleton-body {
+  width: 80%;
+  height: 5em;
+}
+
 .work-card,
 .play-card,
 .study-card,
@@ -381,5 +419,19 @@ main {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
   }
 }

@@ -6,6 +6,40 @@ const main = () => {
   let currentPage = "weekly";
   let timeTrackingData = [];
 
+  function renderPlaceholder(count) {
+    if (!dashboard) return;
+    dashboard.innerHTML = "";
+
+    for (let i = 0; i < count; i++) {
+      const skeleton = document.createElement("div");
+      skeleton.className = "card skeleton-card";
+
+      const content = document.createElement("div");
+      content.className = "card-content";
+
+      const header = document.createElement("div");
+      header.className = "card-header skeleton-header";
+
+      const line = document.createElement("div");
+      line.className = "skeleton-line";
+      header.appendChild(line);
+
+      const button = document.createElement("div");
+      button.className = "skeleton-button";
+      header.appendChild(button);
+
+      const body = document.createElement("div");
+      body.className = "card-body skeleton-body";
+
+      content.appendChild(header);
+      content.appendChild(body);
+
+      skeleton.appendChild(content);
+
+      dashboard.appendChild(skeleton);
+    }
+  }
+
   // Formats the previous time text based on selected timeframe
   function formatPreviousTimeText(timeframe, previousHours) {
     let periodText = "";
@@ -101,6 +135,8 @@ const main = () => {
       // Update current selected timeframe
       currentPage = newTimeframe;
 
+      renderPlaceholder(6);
+
       pages.forEach((page) => {
         if (page.dataset.timeframe === currentPage) {
           page.setAttribute("aria-current", "page");
@@ -114,6 +150,8 @@ const main = () => {
   }
 
   async function loadTimeTrackingData() {
+    renderPlaceholder(6);
+
     try {
       const response = await fetch("./data/data.json");
 
@@ -133,6 +171,10 @@ const main = () => {
       render(currentPage);
     } catch (error) {
       console.error("Failed to load time tracking data: ", error);
+
+      if (dashboard) {
+        dashboard.innerHTML = `<p class="error-message">Could not load data. Please try refreshing the page or check your connection.</p>`;
+      }
     }
   }
 

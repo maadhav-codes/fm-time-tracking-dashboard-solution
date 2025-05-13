@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="./assets/images/favicon-32x32.png"
+      type="image/png"
+    />
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Author -->
+    <meta name="author" content="https://github.com/maadhav-codes" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="profile-header">
+        <h1 class="sr-only">Time tracking dashboard</h1>
+
+        <div class="profile-card">
+          <img
+            src="./assets/images/image-jeremy.png"
+            alt="Profile picture of Jeremy Robson"
+          />
+
+          <div>
+            <small>Report for</small>
+            <p class="profile-name">Jeremy Robson</p>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="#daily" data-timeframe="daily">Daily</a>
+            </li>
+
+            <li>
+              <a href="#weekly" data-timeframe="weekly" aria-current="page"
+                >Weekly</a
+              >
+            </li>
+
+            <li>
+              <a href="#monthly" data-timeframe="monthly">Monthly</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main id="dashboard"></main>
+    </div>
+  </body>
+</html>

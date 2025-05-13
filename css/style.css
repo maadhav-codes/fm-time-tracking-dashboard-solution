@@ -1,0 +1,384 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-rubik: "Rubik", sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  /* Colors */
+  --white: hsl(0, 100%, 100%);
+  --black: hsl(0, 0%, 0%);
+
+  --navy-200: hsl(236, 100%, 87%);
+  --navy-800: hsl(235, 41%, 34%);
+  --navy-900: hsl(235, 46%, 20%);
+  --navy-950: hsl(226, 43%, 10%);
+
+  --grey-200: hsl(0, 0%, 85%);
+  --orange-300: hsl(15, 100%, 70%);
+  --blue-300: hsl(195, 74%, 62%);
+  --yellow-300: hsl(43, 84%, 65%);
+  --pink-400: hsl(348, 100%, 68%);
+  --green-400: hsl(145, 58%, 55%);
+
+  --purple-500: hsl(235, 45%, 61%);
+  --purple-600: hsl(246, 80%, 60%);
+  --purple-700: hsl(264, 64%, 52%);
+
+  --text-xs: 0.9375rem;
+  --text-sm: 1.125rem;
+  --text-md: 1.5rem;
+  --text-lg: 2rem;
+  --text-xl: 2.5rem;
+  --text-2xl: 3.5rem;
+
+  --line-height: 1.2;
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-100: 0.5rem;
+  --spacing-200: 1rem;
+  --spacing-300: 1.5rem;
+  --spacing-400: 2rem;
+  --spacing-500: 2.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-rubik);
+  font-weight: var(--fw-regular);
+  line-height: var(--line-height);
+
+  background-color: var(--navy-950);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100svh;
+  padding: 3rem 1.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: color 280ms ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+}
+
+.profile-header {
+  border-radius: 0.9375rem;
+  background-color: var(--navy-900);
+}
+
+.profile-card {
+  padding: var(--spacing-400);
+  border-radius: 0.9375rem;
+  background-color: var(--purple-600);
+
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-300);
+}
+
+.profile-card img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+}
+
+.profile-card div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.profile-card small {
+  font-size: var(--text-xs);
+  color: var(--navy-200);
+}
+
+.profile-name {
+  font-size: var(--text-md);
+  font-weight: var(--fw-light);
+  color: var(--white);
+}
+
+.profile-header nav {
+  padding: var(--spacing-300) 0;
+}
+
+.profile-header ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-header a {
+  font-size: var(--text-sm);
+  text-align: center;
+  color: var(--purple-500);
+  padding: var(--spacing-100);
+}
+
+.profile-header a[aria-current="page"] {
+  color: var(--white);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-300);
+}
+
+.card {
+  border-radius: 0.9375rem;
+  padding-top: 2.375rem;
+}
+
+.work-card {
+  background-color: var(--orange-300);
+  background-image: url("../assets/images/icon-work.svg");
+}
+
+.play-card {
+  background-color: var(--blue-300);
+  background-image: url("../assets/images/icon-play.svg");
+}
+
+.study-card {
+  background-color: var(--pink-400);
+  background-image: url("../assets/images/icon-study.svg");
+}
+
+.exercise-card {
+  background-color: var(--green-400);
+  background-image: url("../assets/images/icon-exercise.svg");
+}
+
+.social-card {
+  background-color: var(--purple-700);
+  background-image: url("../assets/images/icon-social.svg");
+}
+
+.self-care-card {
+  background-color: var(--yellow-300);
+  background-image: url("../assets/images/icon-self-care.svg");
+}
+
+.work-card,
+.play-card,
+.study-card,
+.exercise-card,
+.social-card,
+.self-care-card {
+  background-repeat: no-repeat;
+  background-position: top -10px right 18px;
+}
+
+.card-content {
+  border-radius: 0.9375rem;
+  background-color: var(--navy-900);
+  padding: var(--spacing-300);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.card-header,
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header h2 {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--white);
+}
+
+.current-hours {
+  font-size: var(--text-lg);
+  font-weight: var(--fw-light);
+  color: var(--white);
+}
+
+.previous-hours {
+  font-size: var(--text-xs);
+  color: var(--navy-200);
+}
+
+@media (min-width: 768px) {
+  body {
+    justify-content: center;
+  }
+
+  .profile-header ul {
+    max-width: 21.5rem;
+    margin: auto;
+    justify-content: space-evenly;
+  }
+
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    padding-top: 2.125rem;
+  }
+
+  .work-card,
+  .play-card,
+  .study-card,
+  .exercise-card,
+  .social-card,
+  .self-care-card {
+    background-repeat: no-repeat;
+    background-position: top -8px right 12px;
+  }
+
+  .card-header button {
+    width: 0.75rem;
+  }
+
+  .card-content {
+    gap: var(--spacing-200);
+  }
+
+  .card-body {
+    flex-direction: column;
+    align-items: start;
+    gap: var(--spacing-100);
+  }
+
+  .current-hours {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 70rem;
+    flex-direction: row;
+    align-items: start;
+    gap: var(--spacing-400);
+  }
+
+  main {
+    gap: var(--spacing-400);
+    width: 100%;
+  }
+
+  .profile-card {
+    width: 16rem;
+    min-height: 22.25rem;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--spacing-500);
+  }
+
+  .profile-card img {
+    width: 4.875rem;
+    height: 4.875rem;
+    box-shadow: 0 4px 4px 0 hsla(0, 0%, 0%, 0.25);
+  }
+
+  .card {
+    padding-top: 2.75rem;
+  }
+
+  .work-card,
+  .play-card,
+  .study-card,
+  .exercise-card,
+  .social-card,
+  .self-care-card {
+    background-repeat: no-repeat;
+    background-position: top -10px right 18px;
+  }
+
+  .profile-card div {
+    gap: var(--spacing-0);
+  }
+
+  .profile-name {
+    font-size: var(--text-xl);
+  }
+
+  .profile-header nav {
+    padding: var(--spacing-400);
+  }
+
+  .profile-header ul {
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.25rem;
+  }
+
+  .card-content {
+    padding: var(--spacing-400);
+    gap: var(--spacing-300);
+  }
+
+  .card-header button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}

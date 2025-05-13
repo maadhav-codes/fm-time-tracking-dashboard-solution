@@ -169,6 +169,11 @@ button {
   text-align: center;
   color: var(--purple-500);
   padding: var(--spacing-100);
+  transition: color 280ms ease;
+}
+
+.profile-header a:hover {
+  color: var(--white);
 }
 
 .profile-header a[aria-current="page"] {
@@ -236,6 +241,7 @@ main {
 .skeleton-body {
   background-color: var(--navy-800);
   border-radius: 0.25rem;
+  -webkit-animation: pulse 1.5s infinite ease;
   animation: pulse 1.5s infinite ease;
 }
 
@@ -272,6 +278,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-100);
+  transition: background-color 280ms ease;
+}
+
+.card:hover .card-content {
+  background-color: var(--navy-800);
 }
 
 .card-header,
@@ -419,6 +430,20 @@ main {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
   }
 }
 
